@@ -17,7 +17,7 @@ namespace PortFolyoProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Ttile = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SubsDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Details = table.Column<int>(type: "int", nullable: false)
+                    Details = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,14 +63,14 @@ namespace PortFolyoProject.Migrations
                 name: "Features",
                 columns: table => new
                 {
-                    FeaturesId = table.Column<int>(type: "int", nullable: false)
+                    FeatureId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Features", x => x.FeaturesId);
+                    table.PrimaryKey("PK_Features", x => x.FeatureId);
                 });
 
             migrationBuilder.CreateTable(

@@ -30,8 +30,9 @@ namespace PortFolyoProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutId"), 1L, 1);
 
-                    b.Property<int>("Details")
-                        .HasColumnType("int");
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubsDescription")
                         .IsRequired()
@@ -116,13 +117,13 @@ namespace PortFolyoProject.Migrations
                     b.ToTable("Experiences");
                 });
 
-            modelBuilder.Entity("PortFolyoProject.DAL.Entities.Features", b =>
+            modelBuilder.Entity("PortFolyoProject.DAL.Entities.Feature", b =>
                 {
-                    b.Property<int>("FeaturesId")
+                    b.Property<int>("FeatureId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeaturesId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeatureId"), 1L, 1);
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -132,7 +133,7 @@ namespace PortFolyoProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("FeaturesId");
+                    b.HasKey("FeatureId");
 
                     b.ToTable("Features");
                 });

@@ -8,7 +8,7 @@
 
         public string SubsDescription { get; set; }
 
-        public int Details{ get; set; }
+        public string Details{ get; set; }
 
 
     }
