@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PortFolyoProject.DAL.Context;
+using PortFolyoProject.DAL.Entities;
 
 namespace PortFolyoProject.Controllers
 {
@@ -12,5 +13,17 @@ namespace PortFolyoProject.Controllers
             var values = context.Experiences.ToList();
             return View(values);
         }
-    }
+        public IActionResult CreateExperience() { 
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateExperience(Experience experience)
+        {
+            context.Experiences.Add(experience);
+            context.SaveChanges();
+            return RedirectToAction("ExperienceList");
+        }
+
+	}
 }
