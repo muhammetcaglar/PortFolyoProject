@@ -41,7 +41,16 @@ namespace PortFolyoProject.Controllers
             return View(value);
         }
 
-   
+        [HttpPost]
+
+        public IActionResult UpdateExperience(Experience experience)
+        {
+            context.Experiences.Update(experience);
+            context.SaveChanges();
+			return RedirectToAction("ExperienceList");
+		}
+
+
 
 	}
 }
